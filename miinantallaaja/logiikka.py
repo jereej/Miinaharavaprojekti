@@ -102,5 +102,11 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     """
     if hiiri[painike] == "vasen":
         tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
-    if hiiri[painike] == "oikea":
-        lisaa_ruutu(int(x / 40), int(y / 40), "f")
+    elif hiiri[painike] == "oikea":
+        if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
+            z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
+            piirretyt_ruudut["kentta"].pop(z)
+        elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["kentta"]:
+            print("ei voi liputtaa")
+        else:
+            lisaa_ruutu(int(x / 40), int(y / 40), "f")
