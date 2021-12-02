@@ -9,6 +9,12 @@ piirretyt_ruudut = {
     "kentta": []
 }
 
+hiiri = {
+    h.HIIRI_VASEN: "vasen",
+    h.HIIRI_KESKI: "keski",
+    h.HIIRI_OIKEA: "oikea",
+}
+
 def rand_num(z=1):
     '''Palauttaa satunnaisen kokonaisluvun nollasta z:aan'''
     luku = int((rand.random() * z))
@@ -94,8 +100,7 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
-    if h.HIIRI_VASEN:
+    if hiiri[painike] == "vasen":
         tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
-    elif h.HIIRI_OIKEA:
+    if hiiri[painike] == "oikea":
         lisaa_ruutu(int(x / 40), int(y / 40), "f")
-        print("oikeapainike")
