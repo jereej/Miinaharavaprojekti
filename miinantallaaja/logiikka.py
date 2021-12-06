@@ -9,6 +9,10 @@ piirretyt_ruudut = {
     "kentta": []
 }
 
+klikit = {
+    "lukumäärä": 0
+}
+
 hiiri = {
     h.HIIRI_VASEN: "vasen",
     h.HIIRI_KESKI: "keski",
@@ -26,12 +30,8 @@ def lisaa_ruutu(x, y, merkki):
         piirretyt_ruudut["kentta"].append(lista)
 
 def luo_numerot(x, y ,kentta):
-    """
-Laskee annetussa huoneessa yhden ruudun ympärillä olevat ninjat ja palauttaa
-niiden lukumäärän. Funktio toimii sillä oletuksella, että valitussa ruudussa ei
-ole ninjaa - jos on, sekin lasketaan mukaan.
-"""
-     
+    """Luo kentälle pelissä käytettävät numerot."""   
+
     for i, rivi in enumerate(kentta):
         if i <= y+1 and i >= y-1:
             for j, piste in enumerate(rivi):
@@ -45,9 +45,8 @@ ole ninjaa - jos on, sekin lasketaan mukaan.
                             kentta[i][j] = str(luku)
 
 def miinoita(kentta, ruudut, miinat):
-    """
-Asettaa kentälle parametrin "miinat" verran miinoja satunnaisesti.
-"""
+    """Asettaa kentälle parametrin "miinat" verran miinoja satunnaisesti."""
+
     for i in range(miinat):
         ruutu = rand_num(len(ruudut) - 1)
         for i, sarake in enumerate(kentta):
@@ -101,6 +100,8 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
     if hiiri[painike] == "vasen":
+        klikit["lukumäärä"] += 1
+        print("klikkien lkm:", klikit["lukumäärä"])
         tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
     elif hiiri[painike] == "oikea":
         if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
