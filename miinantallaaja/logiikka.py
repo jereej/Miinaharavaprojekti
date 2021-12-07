@@ -6,7 +6,8 @@ tila = {
 }
 
 piirretyt_ruudut = {
-    "kentta": []
+    "kentta": [],
+    "xy" : []
 }
 
 klikit = {
@@ -28,6 +29,9 @@ def lisaa_ruutu(x, y, merkki):
     lista = [x, y, merkki]
     if lista not in piirretyt_ruudut["kentta"]:
         piirretyt_ruudut["kentta"].append(lista)
+    xy = [x, y]
+    if xy not in piirretyt_ruudut["xy"]:
+        piirretyt_ruudut["xy"].append(xy)
 
 def luo_numerot(x, y ,kentta):
     """Luo kentälle pelissä käytettävät numerot."""   
@@ -39,10 +43,6 @@ def luo_numerot(x, y ,kentta):
                     if piste != "x":
                         if piste == " ":
                             kentta[i][j] = "1"
-                        else:
-                            luku = int(piste)
-                            luku += 1
-                            kentta[i][j] = str(luku)
 
 def miinoita(kentta, ruudut, miinat):
     """Asettaa kentälle parametrin "miinat" verran miinoja satunnaisesti."""
@@ -107,7 +107,11 @@ def kasittele_hiiri(x, y, painike, muokkaus):
         if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
             z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
             piirretyt_ruudut["kentta"].pop(z)
-        elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["kentta"]:
+        elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["xy"]:
             print("ei voi liputtaa")
         else:
             lisaa_ruutu(int(x / 40), int(y / 40), "f")
+
+def peli_poikki():
+    if 1 == 0:
+        print("PELI POIKKI")
