@@ -43,6 +43,10 @@ def luo_numerot(x, y ,kentta):
                     if piste != "x":
                         if piste == " ":
                             kentta[i][j] = "1"
+                        else:
+                            luku = int(piste)
+                            luku += 1
+                            kentta[i][j] = str(luku)
 
 def miinoita(kentta, ruudut, miinat):
     """Asettaa kentälle parametrin "miinat" verran miinoja satunnaisesti."""
