@@ -24,7 +24,7 @@ if __name__ == "__main__":
         print("Ole hyvä ja anna kokonaisluku.")
     kentta = k.luo_kentta(leveys, korkeus)
     vapaat_ruudut = k.luo_vapaat_ruudut(kentta)
-    l.miinoita(kentta, vapaat_ruudut, 5)
+    l.miinoita(kentta, vapaat_ruudut, int(leveys * korkeus / 10))
     l.tila["kentta"] = kentta
     main()
     k.piirra_kentta()

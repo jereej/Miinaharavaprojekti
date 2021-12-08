@@ -7,7 +7,8 @@ tila = {
 
 piirretyt_ruudut = {
     "kentta": [],
-    "xy" : []
+    "xy" : [],
+    "teksti" : []
 }
 
 klikit = {
@@ -85,11 +86,10 @@ def tulvataytto(maa, x, y):
 Merkitsee planeetalla olevat tuntemattomat alueet turvalliseksi siten, että
 täyttö aloitetaan annetusta x, y -pisteestä.
 """
-    lista=[]
-    ruutu = [x , y]
-    lista.append(ruutu)
-    for k in range(len(maa)):
-        for l in range(len(maa[k])):
+
+    lista=[(x, y)]
+    for i in range(len(maa)):
+        for j in lista:
             kord_x = lista[0][0]
             kord_y = lista[0][1]
             if maa[kord_y][kord_x] == " ":
@@ -97,6 +97,13 @@ täyttö aloitetaan annetusta x, y -pisteestä.
                 lista = laske_miinat(kord_x, kord_y, maa, lista)
                 lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
                 lista.pop(0)
+            elif maa[kord_y][kord_x] != "0":
+                if maa[kord_y][kord_x] == "x":
+                    peli_poikki()
+                    break
+                else:
+                    lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
+                    lista.pop(0)
 
 def kasittele_hiiri(x, y, painike, muokkaus):
     """
@@ -111,11 +118,12 @@ def kasittele_hiiri(x, y, painike, muokkaus):
         if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
             z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
             piirretyt_ruudut["kentta"].pop(z)
+            z = piirretyt_ruudut["xy"].index([int(x / 40), int(y / 40)])
+            piirretyt_ruudut["xy"].pop(z)
         elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["xy"]:
             print("ei voi liputtaa")
         else:
             lisaa_ruutu(int(x / 40), int(y / 40), "f")
 
 def peli_poikki():
-    if 1 == 0:
-        print("PELI POIKKI")
+    print("OSUIT MIINAAN JA HÄVISIT")
