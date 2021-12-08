@@ -1,8 +1,23 @@
 import haravasto as h
 import random as rand
+from time import time
+from main import tallenna_tiedostoon
 
 tila = {
-    "kentta": []
+    "kentta": [],
+    "miinat": [],
+    "liput": []
+}
+
+tallennus = {
+    "aloitus_aika": " ",
+    "aloitus_aika_s": 0,
+    "kesto": 0,
+    "kentan_koko": [0, 0],
+    "klikkaukset": 0,
+    "miinat": 0,
+    "lopputulos": " "
+
 }
 
 piirretyt_ruudut = {
@@ -60,13 +75,13 @@ def miinoita(kentta, ruudut, miinat):
                     if j == ruudut[ruutu][0]:
                         kentta[i][j] = "x"
                         luo_numerot(j, i, kentta)
+                        tila["miinat"].append([j, i])
                         
         ruudut.remove(ruudut[ruutu])
 
 def laske_miinat(x, y , alue, lista):
     """
-    Laskee ruudun ympärillä olevien miinojen määrän. Jos ympärillä on miinoja, se
-    lisää niiden lukumäärän listaan.
+    Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan.
     """
 
     for i, k in enumerate(alue):
@@ -89,7 +104,7 @@ täyttö aloitetaan annetusta x, y -pisteestä.
 
     lista=[(x, y)]
     for i in range(len(maa)):
-        for j in lista:
+        for j in range(len(lista)):
             kord_x = lista[0][0]
             kord_y = lista[0][1]
             if maa[kord_y][kord_x] == " ":
@@ -99,7 +114,7 @@ täyttö aloitetaan annetusta x, y -pisteestä.
                 lista.pop(0)
             elif maa[kord_y][kord_x] != "0":
                 if maa[kord_y][kord_x] == "x":
-                    peli_poikki()
+                    peli_poikki(False)
                     break
                 else:
                     lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
@@ -110,20 +125,37 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
+    if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
+            peli_poikki(True)
+    elif tila["miinat"] == tila["liput"]:
+        peli_poikki(True)
     if hiiri[painike] == "vasen":
-        klikit["lukumäärä"] += 1
-        print("klikkien lkm:", klikit["lukumäärä"])
-        tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
+        if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
+            klikit["lukumäärä"] += 1
+            tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
+        
     elif hiiri[painike] == "oikea":
         if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
             z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
             piirretyt_ruudut["kentta"].pop(z)
             z = piirretyt_ruudut["xy"].index([int(x / 40), int(y / 40)])
             piirretyt_ruudut["xy"].pop(z)
+            z = tila["liput"].index([int(x / 40), int(y / 40)])
+            tila["liput"].pop(z)
         elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["xy"]:
             print("ei voi liputtaa")
         else:
             lisaa_ruutu(int(x / 40), int(y / 40), "f")
+            tila["liput"].append([int(x / 40), int(y / 40)])
 
-def peli_poikki():
-    print("OSUIT MIINAAN JA HÄVISIT")
+def peli_poikki(voitto):
+    if voitto:
+        tallennus["lopputulos"] = "Voitto"
+    else:
+        tallennus["lopputulos"] = "Häviö"
+    tallennus["klikkaukset"] = klikit["lukumäärä"]
+    h.lopeta()
+    aika = time() - tallennus["aloitus_aika_s"]
+    tallenna_tiedostoon(aika, tallennus["lopputulos"], klikit["lukumäärä"])
+
+

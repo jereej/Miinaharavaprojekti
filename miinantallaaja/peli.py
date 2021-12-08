@@ -1,7 +1,7 @@
 import time as t
 import logiikka as l
 import haravasto as h
-import json
+from sys import exit
 
 valinnat = {
     "lopetus": "q",
@@ -28,18 +28,15 @@ Jos haluat katsella tilastojasi, paina T.
         if valinta == valinnat["uusi"]:
             break
         elif valinta == valinnat["tilastot"]:
-            #tähän pitää kehittää tiedostolle semmonen juttu, joka tallentaa
-            #pelistä pelin ajankohdatn (pvm+klo), keston minuuteissa, keston vuoroissa (klikkausten lkm??)
-            #ja lopputuloksen (voitto/häviö, kentän koko ja miinojen lkm)
-            with open("tulokset.txt", "w") as tulos:
-                tulos.write("testi")
-                tulos.read("tulokset.txt")
-            print("testi että tässä tapahtuu jtn")
-            h.lopeta()
-            break
+            with open("tulokset.txt", "r") as tulos:
+                t = tulos.read()
+                print(t)
+            input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
+            menu()
         #entiiä
         elif valinta == valinnat["lopetus"]:
-            h.lopeta()
-            break
+            exit()
         else:
             print("Tästä ei tapahdu mitään, kokeile uudestaan.")
+
+
