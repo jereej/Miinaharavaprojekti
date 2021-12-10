@@ -5,9 +5,7 @@ Kyseessä on ohjelmoinnin alkeet -kurssilla tehty lopputyö.
 Tarkoitus on tehdä miinaharava-peli, jossa käyttäjä voi valita pelin koon ja pelata peliä :D
 
 tällä hetkellä pelissä puutteita:
-	liputtaa, mutta liputtaa myös jo avatut ruudut \
-	ensimmäinen klikkaus aiheuttaa index errorin / ei rekisteröi \
-	ei-tulvatäytettyjä ruutuja ei pysty klikkaamaan \
-	jos klikkaa numeroitua ruutua/ruutua joka ei pitäisi tulvatäyttää -> tulvatäyttää silti \
-	ensimmäinen klikkaus voi olla numero tai miina, vaikka sen pitäisi aina olla tyhjä ruutu \
-	puuttuu menu jossa voi valita kentän koon
+	pelin kesto pitää muuttaa joko minuuteiksi tai displayaa esim. 1 min 20 sec \
+	peli.py:ssä while-loop breakkaa jos valitaan U, mutta loop täytyy breakata, jotta peli voi alkaa. \
+	while-loopin tilalle täytyy keksiä toinen tapa tai keksiä, että miten saa toimimaan. \
+	tulvatäyttöfunktio ei aina käy tarpeeksi pitkälle asti looppia (?)
