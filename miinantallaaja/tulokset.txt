@@ -1,1 +1,19 @@
-kakkaahousuissa
+Aloitusaika: 09.12.2021  klo 18:57:52   Kesto: 5.968087911605835   Miinojen m‰‰r‰: 1   Kent‰n koko: 5x5   Tulos: Voitto Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 18:58:37   Kesto: 4.237044811248779   Miinojen m‰‰r‰: 1   Kent‰n koko: 4x2   Tulos: H‰viˆ Klikkausten m‰‰r‰: 5
+Aloitusaika: 09.12.2021  klo 18:58:37   Kesto: 27.02850317955017   Miinojen m‰‰r‰: 1   Kent‰n koko: 4x2   Tulos: H‰viˆ Klikkausten m‰‰r‰: 5
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 2.89253568649292   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 5.035616397857666   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 7.564115524291992   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 8.412750959396362   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 8.794940948486328   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 8.95401668548584   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 9.113943338394165   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 9.255815029144287   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 09.12.2021  klo 20:28:06   Kesto: 9.412102222442627   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 10.12.2021  klo 20:47:01   Kesto: 2.5452163219451904   Miinojen m‰‰r‰: 1   Kent‰n koko: 9x9   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 10.12.2021  klo 20:47:54   Kesto: 4.971309661865234   Miinojen m‰‰r‰: 1   Kent‰n koko: 4x4   Tulos: Voitto Klikkausten m‰‰r‰: 3
+Aloitusaika: 10.12.2021  klo 20:48:26   Kesto: 4.811870574951172   Miinojen m‰‰r‰: 1   Kent‰n koko: 87x78   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 10.12.2021  klo 20:50:47   Kesto: 15.763168334960938   Miinojen m‰‰r‰: 4   Kent‰n koko: 8x8   Tulos: Voitto Klikkausten m‰‰r‰: 5
+Aloitusaika: 10.12.2021  klo 20:53:31   Kesto: 2.7860021591186523   Miinojen m‰‰r‰: 1   Kent‰n koko: 5x5   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 10.12.2021  klo 20:55:19   Kesto: 4   Miinojen m‰‰r‰: 1   Kent‰n koko: 8x8   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 10.12.2021  klo 20:57:11   Kesto: 18 min   Miinojen m‰‰r‰: 1   Kent‰n koko: 8x8   Tulos: Voitto Klikkausten m‰‰r‰: 1

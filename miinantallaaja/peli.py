@@ -10,6 +10,8 @@ valinnat = {
 }
 
 def menu():
+    """Pelin päävalikko, joka toimii navigointialustana."""
+
     print("""
 Tervetuloa Miinantallaaja-peliin!
 Pelissä on tarkoitus löytää kaikki kentälle piilotetut miinat tutkimalla
@@ -32,8 +34,6 @@ Jos haluat katsella tilastojasi, paina T.
                 t = tulos.read()
                 print(t)
             input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
-            menu()
-        #entiiä
         elif valinta == valinnat["lopetus"]:
             exit()
         else:

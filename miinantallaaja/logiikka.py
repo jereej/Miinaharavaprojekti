@@ -2,6 +2,7 @@ import haravasto as h
 import random as rand
 from time import time
 from main import tallenna_tiedostoon
+from peli import menu
 
 tila = {
     "kentta": [],
@@ -37,11 +38,14 @@ hiiri = {
 }
 
 def rand_num(z=1):
-    '''Palauttaa satunnaisen kokonaisluvun nollasta z:aan'''
+    """Palauttaa satunnaisen kokonaisluvun nollasta z:aan"""
+
     luku = int((rand.random() * z))
     return luku
 
 def lisaa_ruutu(x, y, merkki):
+    
+    """Lisää ruutuja piirretyt_ruudut sanakirjaan."""
     lista = [x, y, merkki]
     if lista not in piirretyt_ruudut["kentta"]:
         piirretyt_ruudut["kentta"].append(lista)
@@ -80,9 +84,7 @@ def miinoita(kentta, ruudut, miinat):
         ruudut.remove(ruudut[ruutu])
 
 def laske_miinat(x, y , alue, lista):
-    """
-    Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan.
-    """
+    """Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan."""
 
     for i, k in enumerate(alue):
         if i <= y+1 and i >= y-1:
@@ -97,10 +99,7 @@ def laske_miinat(x, y , alue, lista):
     return lista
 
 def tulvataytto(maa, x, y):
-    """
-Merkitsee planeetalla olevat tuntemattomat alueet turvalliseksi siten, että
-täyttö aloitetaan annetusta x, y -pisteestä.
-"""
+    """Funktio täyttää klikkauksen ympärillä olevan alueen annettujen ehtojen mukaisesti."""
 
     lista=[(x, y)]
     for i in range(len(maa)):
@@ -121,10 +120,8 @@ täyttö aloitetaan annetusta x, y -pisteestä.
                     lista.pop(0)
 
 def kasittele_hiiri(x, y, painike, muokkaus):
-    """
-    Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
-    Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
-    """
+    """Tämä funktio käsittelee hiiren painallukset."""
+
     if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
             peli_poikki(True)
     elif tila["miinat"] == tila["liput"]:
@@ -149,6 +146,7 @@ def kasittele_hiiri(x, y, painike, muokkaus):
             tila["liput"].append([int(x / 40), int(y / 40)])
 
 def peli_poikki(voitto):
+    """Tallentaa tietoja ja lopettaa pelin lopetusehdon täyttyessä."""
     if voitto:
         tallennus["lopputulos"] = "Voitto"
     else:
@@ -157,5 +155,6 @@ def peli_poikki(voitto):
     h.lopeta()
     aika = time() - tallennus["aloitus_aika_s"]
     tallenna_tiedostoon(aika, tallennus["lopputulos"], klikit["lukumäärä"])
+    menu()
 
 
