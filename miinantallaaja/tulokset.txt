@@ -1,1 +1,2 @@
 Aloitusaika: 11.12.2021  klo 21:52:53   Kesto: 3.5s   Miinojen m‰‰r‰: 1   Kent‰n koko: 10x10   Tulos: Voitto Klikkausten m‰‰r‰: 1
+Aloitusaika: 11.12.2021  klo 22:25:14   Kesto: 2.3s   Miinojen m‰‰r‰: 1   Kent‰n koko: 10x10   Tulos: Voitto Klikkausten m‰‰r‰: 2

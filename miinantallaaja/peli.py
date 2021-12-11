@@ -18,19 +18,20 @@ Aloittaaksesi uuden pelin, paina U.
 Lopettaaksesi, paina Q.
 Jos haluat katsella tilastojasi, paina T.
     """)
-    while True:
-        valinta = str(input("Ole hyvä ja valitse, mitä haluat tehdä: ")).strip().lower()
-        if valinta == valinnat["uusi"]:
-            break
-        elif valinta == valinnat["tilastot"]:
-            with open("tulokset.txt", "r") as tulos:
-                t = tulos.read()
-                print(t)
-            input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
-            menu()
-        elif valinta == valinnat["lopetus"]:
-            exit()
-        else:
-            print("Tästä ei tapahdu mitään, kokeile uudestaan.")
+    
+    valinta = str(input("Ole hyvä ja valitse, mitä haluat tehdä: ")).strip().lower()
+    if valinta == valinnat["uusi"]:
+        pass
+    elif valinta == valinnat["tilastot"]:
+        with open("tulokset.txt", "r") as tulos:
+            t = tulos.read()
+            print(t)
+        input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
+        menu()
+    elif valinta == valinnat["lopetus"]:
+        exit()
+    else:
+        print("Tästä ei tapahdu mitään, kokeile uudestaan.")
+        menu()
 
 
