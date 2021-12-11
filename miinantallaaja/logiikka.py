@@ -130,15 +130,17 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     if tallennus["lopputulos"] != " ":
             h.lopeta()
     if hiiri[painike] == "vasen":
-        if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
-            klikit["lukumäärä"] += 1
-            tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
+        if [int(x / 40), int(y / 40)] not in tila["liput"]:
+            if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
+                klikit["lukumäärä"] += 1
+                tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
     elif hiiri[painike] == "oikea":
-        if [int(x / 40), int(y / 40)] in tila["liput"]:
-            z = tila["liput"].index([int(x / 40), int(y / 40)])
-            tila["liput"].pop(z)
-        else:
-            tila["liput"].append([int(x / 40), int(y / 40)])
+        if [int(x / 40), int(y / 40)] not in piirretyt_ruudut["xy"]:
+            if [int(x / 40), int(y / 40)] in tila["liput"]:
+                z = tila["liput"].index([int(x / 40), int(y / 40)])
+                tila["liput"].pop(z)
+            else:
+                tila["liput"].append([int(x / 40), int(y / 40)])
 
 def toistuva_kasittelija(aika):
     if len(piirretyt_ruudut["teksti"]) < 1:     

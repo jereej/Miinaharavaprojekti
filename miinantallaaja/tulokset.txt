@@ -30,3 +30,10 @@ Aloitusaika: 11.12.2021  klo 23:49:32   Kesto: 9.5s   Miinojen m‰‰r‰: 5   Kent‰n
 Aloitusaika: 11.12.2021  klo 23:53:03   Kesto: 41.9s   Miinojen m‰‰r‰: 5   Kent‰n koko: 8x8   Tulos: Voitto Klikkausten m‰‰r‰: 4
 Aloitusaika: 11.12.2021  klo 23:54:54   Kesto: 63.3s   Miinojen m‰‰r‰: 12   Kent‰n koko: 12x12   Tulos: Voitto Klikkausten m‰‰r‰: 7
 Aloitusaika: 11.12.2021  klo 23:59:42   Kesto: 12.5s   Miinojen m‰‰r‰: 4   Kent‰n koko: 10x10   Tulos: Voitto Klikkausten m‰‰r‰: 7
+Aloitusaika: 12.12.2021  klo 00:03:18   Kesto: 37.5s   Miinojen m‰‰r‰: 1   Kent‰n koko: 2x2   Tulos: H‰viˆ Klikkausten m‰‰r‰: 6
+Aloitusaika: 12.12.2021  klo 00:04:27   Kesto: 212.3s   Miinojen m‰‰r‰: 5   Kent‰n koko: 8x8   Tulos: Voitto Klikkausten m‰‰r‰: 12
+Aloitusaika: 12.12.2021  klo 00:11:37   Kesto: 41.6s   Miinojen m‰‰r‰: 1   Kent‰n koko: 10x10   Tulos: Voitto Klikkausten m‰‰r‰: 2
+Aloitusaika: 12.12.2021  klo 00:12:41   Kesto: 55.0s   Miinojen m‰‰r‰: 5   Kent‰n koko: 10x10   Tulos: H‰viˆ Klikkausten m‰‰r‰: 3
+Aloitusaika: 12.12.2021  klo 00:15:51   Kesto: 4.3s   Miinojen m‰‰r‰: 5   Kent‰n koko: 10x10   Tulos: H‰viˆ Klikkausten m‰‰r‰: 2
+Aloitusaika: 12.12.2021  klo 00:16:06   Kesto: 17.8s   Miinojen m‰‰r‰: 5   Kent‰n koko: 10x10   Tulos: H‰viˆ Klikkausten m‰‰r‰: 7
+Aloitusaika: 12.12.2021  klo 00:18:06   Kesto: 10.6s   Miinojen m‰‰r‰: 5   Kent‰n koko: 10x10   Tulos: Voitto Klikkausten m‰‰r‰: 2
