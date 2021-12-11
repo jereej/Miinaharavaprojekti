@@ -126,12 +126,12 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
-
+    if tallennus["lopputulos"] != " ":
+            h.lopeta()
     if hiiri[painike] == "vasen":
         if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
             klikit["lukumäärä"] += 1
             tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
-        
     elif hiiri[painike] == "oikea":
         if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
             z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
@@ -145,10 +145,11 @@ def kasittele_hiiri(x, y, painike, muokkaus):
             tila["liput"].append([int(x / 40), int(y / 40)])
 
 def toistuva_kasittelija(aika):
-    if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
+    if len(piirretyt_ruudut["teksti"]) < 1:     
+        if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
+                peli_poikki(True)
+        elif tila["miinat"] == tila["liput"]:
             peli_poikki(True)
-    elif tila["miinat"] == tila["liput"]:
-        peli_poikki(True)
 
 def peli_poikki(voitto):
     '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan.'''
@@ -157,9 +158,12 @@ def peli_poikki(voitto):
     else:
         tallennus["lopputulos"] = "Häviö"
     tallennus["klikkaukset"] = klikit["lukumäärä"]
-    h.lopeta()
     aika = time() - tallennus["aloitus_aika_s"]
     tallenna_tiedostoon(round(aika, 1), tallennus["lopputulos"], klikit["lukumäärä"])
     print("Lopputulos: ", tallennus["lopputulos"], " ajassa: ", round(aika, 1), "s")
+    piirretyt_ruudut["teksti"].append([0, 100, "Paina hiiren"])
+    piirretyt_ruudut["teksti"].append([0, 50, "näppäintä"])
+    piirretyt_ruudut["teksti"].append([0, 0, "poistuaksesi"])
+    piirretyt_ruudut["teksti"].append([0, tallennus["kentan_koko"][0]*40 - 50, tallennus["lopputulos"]])
 
 

@@ -2,7 +2,6 @@ import logiikka as l
 import kentta as k
 import haravasto as h
 import peli as p
-import os
 import time
 
 def main():
