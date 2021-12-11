@@ -148,7 +148,8 @@ def toistuva_kasittelija(aika):
                 peli_poikki(True)
 
 def peli_poikki(voitto):
-    '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan.'''
+    '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan
+     ja pelikentälle.'''
     if voitto:
         tallennus["lopputulos"] = "Voitto"
     else:
@@ -161,5 +162,6 @@ def peli_poikki(voitto):
     piirretyt_ruudut["teksti"].append([0, 50, "näppäintä"])
     piirretyt_ruudut["teksti"].append([0, 0, "poistuaksesi"])
     piirretyt_ruudut["teksti"].append([0, tallennus["kentan_koko"][0]*40 - 50, tallennus["lopputulos"]])
+    
 
 

@@ -30,17 +30,26 @@ def tallenna_tiedostoon(kesto, lopputulos, klikit):
             klikit
             ))
 
-
+def kysy_numeroa(teksti):
+    try:
+        syote = int(input(teksti))
+    except ValueError:
+        print("Ole hyvä ja anna kokonaisluku.")
+    return syote
 
 
 if __name__ == "__main__":
     p.menu()
-    try:
-        leveys = int(input("Ole hyvä ja anna kentän leveys: "))
-        korkeus = int(input("Ole hyvä ja anna kentän korkeus: "))
-        miinat = int(input("Ole hyvä ja anna miinojen määrä: "))
-    except ValueError:
-        print("Ole hyvä ja anna kokonaisluku.")
+    while True:
+        leveys = kysy_numeroa("Ole hyvä ja anna kentän leveys: ")
+        korkeus = kysy_numeroa("Ole hyvä ja anna kentän korkeus: ")
+        miinat = kysy_numeroa("Ole hyvä ja anna miinojen määrä: ")
+        if leveys < 3 or korkeus < 3:
+            print("Kenttä liian pieni, yritä uudestaan.")
+        elif leveys > 20 or korkeus > 20:
+            print("Kenttä liian suuri, yritä uudestaan.")
+        else:
+            break
     kentta = k.luo_kentta(leveys, korkeus)
     vapaat_ruudut = k.luo_vapaat_ruudut(kentta)
     l.miinoita(kentta, vapaat_ruudut, miinat)
