@@ -2,8 +2,7 @@ import logiikka as l
 import haravasto as h
 
 def luo_kentta(x, y):
-    """Luo kentän jonka leveys on x ja korkeus y. Palauttaa kentän listana."""
-
+    ''' Luo kentän jonka leveys on x ja korkeus y. Palauttaa kentän listana.'''
     kentta = []
     for i in range(y):
         rivi = []
@@ -13,8 +12,7 @@ def luo_kentta(x, y):
     return kentta
 
 def luo_vapaat_ruudut(kentta):
-    """Luo listan vapaista ruuduista ja palauttaa sen."""
-
+    '''Luo listan vapaista ruuduista ja palauttaa sen.'''
     vapaat_ruudut = []
     for i, rivi in enumerate(kentta):
         for j, ruutu in enumerate(rivi):
@@ -23,8 +21,11 @@ def luo_vapaat_ruudut(kentta):
     return vapaat_ruudut
 
 def piirra_kentta():
-    """Funktio piirtää pelissä käytettävän kentän."""
-    
+    """
+Käsittelijäfunktio, joka piirtää kaksiulotteisena listana kuvatun miinakentän
+ruudut näkyviin peli-ikkunaan. Funktiota kutsutaan aina kun pelimoottori pyytää
+ruudun näkymän päivitystä.
+"""
     h.tyhjaa_ikkuna()
     h.piirra_tausta()
     h.aloita_ruutujen_piirto()

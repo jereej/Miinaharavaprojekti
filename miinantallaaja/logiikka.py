@@ -2,7 +2,6 @@ import haravasto as h
 import random as rand
 from time import time
 from main import tallenna_tiedostoon
-from peli import menu
 
 tila = {
     "kentta": [],
@@ -38,14 +37,11 @@ hiiri = {
 }
 
 def rand_num(z=1):
-    """Palauttaa satunnaisen kokonaisluvun nollasta z:aan"""
-
+    '''Palauttaa satunnaisen kokonaisluvun nollasta z:aan'''
     luku = int((rand.random() * z))
     return luku
 
 def lisaa_ruutu(x, y, merkki):
-    
-    """Lisää ruutuja piirretyt_ruudut sanakirjaan."""
     lista = [x, y, merkki]
     if lista not in piirretyt_ruudut["kentta"]:
         piirretyt_ruudut["kentta"].append(lista)
@@ -84,7 +80,9 @@ def miinoita(kentta, ruudut, miinat):
         ruudut.remove(ruudut[ruutu])
 
 def laske_miinat(x, y , alue, lista):
-    """Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan."""
+    """
+    Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan.
+    """
 
     for i, k in enumerate(alue):
         if i <= y+1 and i >= y-1:
@@ -99,29 +97,33 @@ def laske_miinat(x, y , alue, lista):
     return lista
 
 def tulvataytto(maa, x, y):
-    """Funktio täyttää klikkauksen ympärillä olevan alueen annettujen ehtojen mukaisesti."""
+    """
+Merkitsee planeetalla olevat tuntemattomat alueet turvalliseksi siten, että
+täyttö aloitetaan annetusta x, y -pisteestä.
+"""
 
     lista=[(x, y)]
-    for i in range(len(maa)):
-        for j in range(len(lista)):
-            kord_x = lista[0][0]
-            kord_y = lista[0][1]
-            if maa[kord_y][kord_x] == " ":
-                maa[kord_y][kord_x] = "0"
-                lista = laske_miinat(kord_x, kord_y, maa, lista)
+    while len(lista) > 0:
+        kord_x = lista[0][0]
+        kord_y = lista[0][1]
+        if maa[kord_y][kord_x] == " ":
+            maa[kord_y][kord_x] = "0"
+            lista = laske_miinat(kord_x, kord_y, maa, lista)
+            lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
+            lista.pop(0)
+        elif maa[kord_y][kord_x] != "0":
+            if maa[kord_y][kord_x] == "x":
+                peli_poikki(False)
+                break
+            else:
                 lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
                 lista.pop(0)
-            elif maa[kord_y][kord_x] != "0":
-                if maa[kord_y][kord_x] == "x":
-                    peli_poikki(False)
-                    break
-                else:
-                    lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
-                    lista.pop(0)
 
 def kasittele_hiiri(x, y, painike, muokkaus):
-    """Tämä funktio käsittelee hiiren painallukset."""
-
+    """
+    Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
+    Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
+    """
     if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
             peli_poikki(True)
     elif tila["miinat"] == tila["liput"]:
@@ -139,14 +141,11 @@ def kasittele_hiiri(x, y, painike, muokkaus):
             piirretyt_ruudut["xy"].pop(z)
             z = tila["liput"].index([int(x / 40), int(y / 40)])
             tila["liput"].pop(z)
-        elif [int(x / 40), int(y / 40)] in piirretyt_ruudut["xy"]:
-            print("ei voi liputtaa")
         else:
             lisaa_ruutu(int(x / 40), int(y / 40), "f")
             tila["liput"].append([int(x / 40), int(y / 40)])
 
 def peli_poikki(voitto):
-    """Tallentaa tietoja ja lopettaa pelin lopetusehdon täyttyessä."""
     if voitto:
         tallennus["lopputulos"] = "Voitto"
     else:
@@ -154,7 +153,7 @@ def peli_poikki(voitto):
     tallennus["klikkaukset"] = klikit["lukumäärä"]
     h.lopeta()
     aika = time() - tallennus["aloitus_aika_s"]
-    tallenna_tiedostoon(aika, tallennus["lopputulos"], klikit["lukumäärä"])
-    menu()
+    tallenna_tiedostoon(round(aika, 1), tallennus["lopputulos"], klikit["lukumäärä"])
+    print("Lopputulos: ", tallennus["lopputulos"], " ajassa: ", round(aika, 1), "s")
 
 

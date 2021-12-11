@@ -6,9 +6,10 @@ import os
 import time
 
 def main():
-    """Funktio luo peli-ikkunan, asettaa piirron ja hiiren käsittelijät
-    sekä aloittaa pelin."""
-
+    """
+    Lataa pelin grafiikat, luo peli-ikkunan ja asettaa siihen piirtokäsittelijän.
+    """
+   # path = os.getcwd() + "\spritet"
     h.lataa_kuvat("spritet")
     h.luo_ikkuna(len(kentta[1] * 40), len(kentta * 40))
     h.aseta_piirto_kasittelija(k.piirra_kentta)
@@ -16,9 +17,8 @@ def main():
     h.aloita()
 
 def tallenna_tiedostoon(kesto, lopputulos, klikit):
-    """Funktio tallentaa pelatun pelin tiedot tiedostoon. Aikaisemmat pelit myös näkyvät tiedostossa."""
     with open("tulokset.txt", "a") as tulos:
-        tulos.write("Aloitusaika: {}   Kesto: {} min   Miinojen määrä: {}   Kentän koko: {}x{}   Tulos: {} Klikkausten määrä: {}\n".format(
+        tulos.write("Aloitusaika: {}   Kesto: {}s   Miinojen määrä: {}   Kentän koko: {}x{}   Tulos: {} Klikkausten määrä: {}\n".format(
             l.tallennus["aloitus_aika"], 
             kesto, 
             l.tallennus["miinat"],  
