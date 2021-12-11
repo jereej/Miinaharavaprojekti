@@ -115,6 +115,7 @@ täyttö aloitetaan annetusta x, y -pisteestä.
             lista.pop(0)
         elif maa[kord_y][kord_x] != "0":
             if maa[kord_y][kord_x] == "x":
+                lisaa_ruutu(kord_x, kord_y, maa[kord_y][kord_x])
                 peli_poikki(False)
                 break
             else:
@@ -133,22 +134,17 @@ def kasittele_hiiri(x, y, painike, muokkaus):
             klikit["lukumäärä"] += 1
             tulvataytto(tila["kentta"], int(x / 40), int(y / 40))
     elif hiiri[painike] == "oikea":
-        if [int(x / 40), int(y / 40), "f"] in piirretyt_ruudut["kentta"]:
-            z = piirretyt_ruudut["kentta"].index([int(x / 40), int(y / 40), "f"])
-            piirretyt_ruudut["kentta"].pop(z)
-            z = piirretyt_ruudut["xy"].index([int(x / 40), int(y / 40)])
-            piirretyt_ruudut["xy"].pop(z)
+        if [int(x / 40), int(y / 40)] in tila["liput"]:
             z = tila["liput"].index([int(x / 40), int(y / 40)])
             tila["liput"].pop(z)
         else:
-            lisaa_ruutu(int(x / 40), int(y / 40), "f")
             tila["liput"].append([int(x / 40), int(y / 40)])
 
 def toistuva_kasittelija(aika):
     if len(piirretyt_ruudut["teksti"]) < 1:     
         if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
                 peli_poikki(True)
-        elif tila["miinat"] == tila["liput"]:
+        elif sorted(tila["miinat"]) == sorted(tila["liput"]):
             peli_poikki(True)
 
 def peli_poikki(voitto):

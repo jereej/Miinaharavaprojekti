@@ -34,6 +34,8 @@ ruudun näkymän päivitystä.
                 h.lisaa_piirrettava_ruutu(" ", j * 40, i * 40)
     for k in l.piirretyt_ruudut["kentta"]:
         h.lisaa_piirrettava_ruutu(k[2], k[0] * 40, k[1] * 40)
+    for m in l.tila["liput"]:
+        h.lisaa_piirrettava_ruutu("f", m[0] * 40, m[1] * 40)
     h.piirra_ruudut()
     for j in l.piirretyt_ruudut["teksti"]:
         h.piirra_tekstia(j[2], j[0], j[1])
