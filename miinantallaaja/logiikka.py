@@ -144,8 +144,6 @@ def toistuva_kasittelija(aika):
     if len(piirretyt_ruudut["teksti"]) < 1:     
         if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
                 peli_poikki(True)
-        elif sorted(tila["miinat"]) == sorted(tila["liput"]):
-            peli_poikki(True)
 
 def peli_poikki(voitto):
     '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan.'''
