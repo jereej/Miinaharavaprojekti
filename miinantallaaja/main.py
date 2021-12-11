@@ -9,7 +9,6 @@ def main():
     """
     Lataa pelin grafiikat, luo peli-ikkunan ja asettaa siihen piirtokäsittelijän.
     """
-   # path = os.getcwd() + "\spritet"
     h.lataa_kuvat("spritet")
     h.luo_ikkuna(len(kentta[1] * 40), len(kentta * 40))
     h.aseta_piirto_kasittelija(k.piirra_kentta)
@@ -17,6 +16,9 @@ def main():
     h.aloita()
 
 def tallenna_tiedostoon(kesto, lopputulos, klikit):
+    ''' 
+    Tallentaa pelin tulokset tiedostoon tulokset.txt 
+    '''
     with open("tulokset.txt", "a") as tulos:
         tulos.write("Aloitusaika: {}   Kesto: {}s   Miinojen määrä: {}   Kentän koko: {}x{}   Tulos: {} Klikkausten määrä: {}\n".format(
             l.tallennus["aloitus_aika"], 

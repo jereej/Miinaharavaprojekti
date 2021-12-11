@@ -1,8 +1,3 @@
-import time as t
-import logiikka as l
-import haravasto as h
-from sys import exit
-
 valinnat = {
     "lopetus": "q",
     "uusi": "u",
@@ -31,7 +26,8 @@ Jos haluat katsella tilastojasi, paina T.
             with open("tulokset.txt", "r") as tulos:
                 t = tulos.read()
                 print(t)
-                input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
+            input("Paina mitä tahansa näppäintä palataksesi alkuvalikkoon.")
+            menu()
         elif valinta == valinnat["lopetus"]:
             exit()
         else:

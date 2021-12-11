@@ -42,6 +42,8 @@ def rand_num(z=1):
     return luku
 
 def lisaa_ruutu(x, y, merkki):
+    '''Lisää annetun ruudun piirretyihin tuuruihin, sekä lisää annetun ruudun kordinaatit 
+    piirrettyjen ruutujen xy listaan. '''
     lista = [x, y, merkki]
     if lista not in piirretyt_ruudut["kentta"]:
         piirretyt_ruudut["kentta"].append(lista)
@@ -98,7 +100,7 @@ def laske_miinat(x, y , alue, lista):
 
 def tulvataytto(maa, x, y):
     """
-Merkitsee planeetalla olevat tuntemattomat alueet turvalliseksi siten, että
+Merkitsee kentällä olevat tuntemattomat alueet tunnetuiksi siten, että
 täyttö aloitetaan annetusta x, y -pisteestä.
 """
 
@@ -146,6 +148,7 @@ def kasittele_hiiri(x, y, painike, muokkaus):
             tila["liput"].append([int(x / 40), int(y / 40)])
 
 def peli_poikki(voitto):
+    '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan.'''
     if voitto:
         tallennus["lopputulos"] = "Voitto"
     else:
