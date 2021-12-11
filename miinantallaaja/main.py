@@ -13,6 +13,7 @@ def main():
     h.luo_ikkuna(len(kentta[1] * 40), len(kentta * 40))
     h.aseta_piirto_kasittelija(k.piirra_kentta)
     h.aseta_hiiri_kasittelija(l.kasittele_hiiri)
+    h.aseta_toistuva_kasittelija(l.toistuva_kasittelija)
     h.aloita()
 
 def tallenna_tiedostoon(kesto, lopputulos, klikit):

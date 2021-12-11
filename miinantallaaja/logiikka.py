@@ -126,10 +126,7 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tätä funktiota kutsutaan kun käyttäjä klikkaa sovellusikkunaa hiirellä.
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
-    if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
-            peli_poikki(True)
-    elif tila["miinat"] == tila["liput"]:
-        peli_poikki(True)
+
     if hiiri[painike] == "vasen":
         if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
             klikit["lukumäärä"] += 1
@@ -146,6 +143,12 @@ def kasittele_hiiri(x, y, painike, muokkaus):
         else:
             lisaa_ruutu(int(x / 40), int(y / 40), "f")
             tila["liput"].append([int(x / 40), int(y / 40)])
+
+def toistuva_kasittelija(aika):
+    if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
+            peli_poikki(True)
+    elif tila["miinat"] == tila["liput"]:
+        peli_poikki(True)
 
 def peli_poikki(voitto):
     '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan.'''
