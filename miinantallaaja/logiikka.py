@@ -1,6 +1,6 @@
-import haravasto as h
 import random as rand
 from time import time
+import haravasto as h
 from main import tallenna_tiedostoon
 
 tila = {
@@ -17,7 +17,6 @@ tallennus = {
     "klikkaukset": 0,
     "miinat": 0,
     "lopputulos": " "
-
 }
 
 piirretyt_ruudut = {
@@ -37,13 +36,13 @@ hiiri = {
 }
 
 def rand_num(z=1):
-    '''Palauttaa satunnaisen kokonaisluvun nollasta z:aan'''
+    """Palauttaa satunnaisen kokonaisluvun nollasta z:aan"""
     luku = int((rand.random() * z))
     return luku
 
 def lisaa_ruutu(x, y, merkki):
-    '''Lisää annetun ruudun piirretyihin tuuruihin, sekä lisää annetun ruudun kordinaatit 
-    piirrettyjen ruutujen xy listaan. '''
+    """Lisää annetun ruudun piirretyihin tuuruihin, sekä lisää annetun ruudun kordinaatit 
+    piirrettyjen ruutujen xy listaan."""
     lista = [x, y, merkki]
     if lista not in piirretyt_ruudut["kentta"]:
         piirretyt_ruudut["kentta"].append(lista)
@@ -51,9 +50,8 @@ def lisaa_ruutu(x, y, merkki):
     if xy not in piirretyt_ruudut["xy"]:
         piirretyt_ruudut["xy"].append(xy)
 
-def luo_numerot(x, y ,kentta):
+def luo_numerot(x, y, kentta):
     """Luo kentälle pelissä käytettävät numerot."""   
-
     for i, rivi in enumerate(kentta):
         if i <= y+1 and i >= y-1:
             for j, piste in enumerate(rivi):
@@ -68,8 +66,7 @@ def luo_numerot(x, y ,kentta):
 
 def miinoita(kentta, ruudut, miinat):
     """Asettaa kentälle parametrin "miinat" verran miinoja satunnaisesti."""
-
-    for i in range(miinat):
+    for k in range(miinat):
         ruutu = rand_num(len(ruudut) - 1)
         for i, sarake in enumerate(kentta):
             if i == ruudut[ruutu][1]:
@@ -81,11 +78,10 @@ def miinoita(kentta, ruudut, miinat):
                         
         ruudut.remove(ruudut[ruutu])
 
-def laske_miinat(x, y , alue, lista):
+def laske_miinat(x, y, alue, lista):
     """
     Laskee ruudun ympärillä olevat tyhjät ruudut ja lisää ne listaan. Palauttaa täydennetyn listan.
     """
-
     for i, k in enumerate(alue):
         if i <= y+1 and i >= y-1:
             for j, piste in enumerate(k):
@@ -103,8 +99,7 @@ def tulvataytto(maa, x, y):
 Merkitsee kentällä olevat tuntemattomat alueet tunnetuiksi siten, että
 täyttö aloitetaan annetusta x, y -pisteestä.
 """
-
-    lista=[(x, y)]
+    lista = [(x, y)]
     while len(lista) > 0:
         kord_x = lista[0][0]
         kord_y = lista[0][1]
@@ -128,7 +123,7 @@ def kasittele_hiiri(x, y, painike, muokkaus):
     Tulostaa hiiren sijainnin sekä painetun napin terminaaliin.
     """
     if tallennus["lopputulos"] != " ":
-            h.lopeta()
+        h.lopeta()
     if hiiri[painike] == "vasen":
         if [int(x / 40), int(y / 40)] not in tila["liput"]:
             if [int(x/40), int(y/40)]not in piirretyt_ruudut["xy"]:
@@ -145,11 +140,11 @@ def kasittele_hiiri(x, y, painike, muokkaus):
 def toistuva_kasittelija(aika):
     if len(piirretyt_ruudut["teksti"]) < 1:     
         if len(piirretyt_ruudut["kentta"]) >= tallennus["kentan_koko"][0]*tallennus["kentan_koko"][1]-tallennus["miinat"]:
-                peli_poikki(True)
+            peli_poikki(True)
 
 def peli_poikki(voitto):
-    '''Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan
-     ja pelikentälle.'''
+    """Kutsutaan pelin päättyessä. Tulostaa pelin lopputuloksen komentoikkunaan
+     ja pelikentälle."""
     if voitto:
         tallennus["lopputulos"] = "Voitto"
     else:
@@ -162,6 +157,3 @@ def peli_poikki(voitto):
     piirretyt_ruudut["teksti"].append([0, 50, "näppäintä"])
     piirretyt_ruudut["teksti"].append([0, 0, "poistuaksesi"])
     piirretyt_ruudut["teksti"].append([0, tallennus["kentan_koko"][0]*40 - 50, tallennus["lopputulos"]])
-    
-
-

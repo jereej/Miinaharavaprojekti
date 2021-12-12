@@ -1,3 +1,5 @@
+from sys import exit
+
 valinnat = {
     "lopetus": "q",
     "uusi": "u",
@@ -33,5 +35,3 @@ Jos haluat katsella tilastojasi, paina T.
     else:
         print("Tästä ei tapahdu mitään, kokeile uudestaan.")
         menu()
-
-

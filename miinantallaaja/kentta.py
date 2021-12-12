@@ -2,7 +2,7 @@ import logiikka as l
 import haravasto as h
 
 def luo_kentta(x, y):
-    ''' Luo kentän jonka leveys on x ja korkeus y. Palauttaa kentän listana.'''
+    """ Luo kentän jonka leveys on x ja korkeus y. Palauttaa kentän listana."""
     kentta = []
     for i in range(y):
         rivi = []
@@ -12,7 +12,7 @@ def luo_kentta(x, y):
     return kentta
 
 def luo_vapaat_ruudut(kentta):
-    '''Luo listan vapaista ruuduista ja palauttaa sen.'''
+    """Luo listan vapaista ruuduista ja palauttaa sen."""
     vapaat_ruudut = []
     for i, rivi in enumerate(kentta):
         for j, ruutu in enumerate(rivi):
@@ -31,7 +31,7 @@ ruudun näkymän päivitystä.
     h.aloita_ruutujen_piirto()
     for i, sarake in enumerate(l.tila["kentta"]):
         for j, rivi in enumerate(sarake):
-                h.lisaa_piirrettava_ruutu(" ", j * 40, i * 40)
+            h.lisaa_piirrettava_ruutu(" ", j * 40, i * 40)
     for k in l.piirretyt_ruudut["kentta"]:
         h.lisaa_piirrettava_ruutu(k[2], k[0] * 40, k[1] * 40)
     for m in l.tila["liput"]:

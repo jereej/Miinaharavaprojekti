@@ -1,8 +1,10 @@
+import time
 import logiikka as l
 import kentta as k
 import haravasto as h
 import peli as p
-import time
+
+#Tätä miinantallaaja-peliä ovat tehneet: Jeremias Nevalainen ja Jere Jacklin.
 
 def main():
     """
@@ -16,9 +18,9 @@ def main():
     h.aloita()
 
 def tallenna_tiedostoon(kesto, lopputulos, klikit):
-    ''' 
+    """
     Tallentaa pelin tulokset tiedostoon tulokset.txt 
-    '''
+    """
     with open("tulokset.txt", "a") as tulos:
         tulos.write("Aloitusaika: {}   Kesto: {}s   Miinojen määrä: {}   Kentän koko: {}x{}   Tulos: {} Klikkausten määrä: {}\n".format(
             l.tallennus["aloitus_aika"], 
@@ -36,7 +38,6 @@ def kysy_numeroa(teksti):
     except ValueError:
         print("Ole hyvä ja anna kokonaisluku.")
     return syote
-
 
 if __name__ == "__main__":
     p.menu()
@@ -61,6 +62,3 @@ if __name__ == "__main__":
     l.tallennus["miinat"] = miinat
     main()
     k.piirra_kentta()
-
-
-    
